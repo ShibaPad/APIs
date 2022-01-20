@@ -1,6 +1,8 @@
 tags:
 - name: users
   description: users API
+- name: pools
+  description: pools API
 
 paths:
 # [GET] users
@@ -99,6 +101,102 @@ paths:
           description: 'Conflict'
         500:
           description: 'Server Error'
+# [GET] pools
+  /pools:
+    get:
+      tags:
+      - pools
+      summary: Find All Pools
+      responses:
+        200:
+          description: 'OK'
+        500:
+          description: 'Server Error'
+
+# [POST] pools
+    post:
+      tags:
+      - pools
+      summary: Add Pool
+      parameters:
+      - name: body
+        in: body
+        description: user Data
+        required: true
+        schema:
+          $ref: '#/definitions/pools'
+      responses:
+        201:
+          description: 'Created'
+        400:
+          description: 'Bad Request'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+
+# [GET] pools/id
+  /pools/{id}:
+    get:
+      tags:
+      - pools
+      summary: Find Pool By Id
+      parameters:
+      - name: id
+        in: path
+        description: Pool Id
+        required: true
+      responses:
+        200:
+          description: 'OK'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+
+# [PUT] pools/id
+    put:
+      tags:
+      - pools
+      summary: Update Pool By Id
+      parameters:
+      - name: id
+        in: path
+        description: pool Id
+        required: true
+      - name: body
+        in: body
+        description: pool Data
+        required: true
+        schema:
+          $ref: '#/definitions/pools'
+      responses:
+        200:
+          description: 'OK'
+        400:
+          description: 'Bad Request'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+
+# [DELETE] pools/id
+    delete:
+      tags:
+      - pools
+      summary: Delete Pool By Id
+      parameters:
+      - name: id
+        in: path
+        description: pool Id
+        required: true
+      responses:
+        200:
+          description: 'OK'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
 
 # definitions
 definitions:
@@ -116,6 +214,59 @@ definitions:
       password:
         type: string
         description: user Password
+  pools:
+    type: object
+    required:
+        - name
+        - address
+        - description
+        - logoURL
+        - vestingSchedule
+        - network
+        - claimDate
+        - swapDate
+    properties:
+      id:
+        description: pool Id
+      name:
+        type: string
+        description: Pool Name
+      address:
+        type: string
+        description: Pool Address
+      description:
+        type: string
+        description: Pool Description
+      logoURL:
+        type: string
+        description: Pool Logo
+      vestingSchedule:
+        type: string
+        description: Pool Vesting Schedule
+      network:
+        type: string
+        description: Network
+      claimDate:
+        type: date
+        description: Claim Date
+      swapDate:
+        type: date
+        description: Swap Date
+      acceptedCurrency:
+        type: string
+        description: Accepted Currency
+      link:
+        type: string
+        description: link
+      minimumTier:
+        type: string
+        description: Minimum Tier
+      saleType:
+        type: string
+        description: Sale Type
+      whitelistPeriod:
+        type: string
+        description: Whitelist Period
 
 schemes:
  - https

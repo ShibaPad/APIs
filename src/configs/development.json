@@ -2,7 +2,7 @@
     "env": "development",
     "dbConfig": {
         "host": "localhost",
-        "database": "test",
+        "database": "launchpad",
         "port": 27017
     },
     "secretKey": "secretKey",
