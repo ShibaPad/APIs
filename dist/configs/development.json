@@ -1,7 +1,9 @@
 {
     "env": "development",
     "dbConfig": {
-        "connection_uri": "mongodb://localhost:27017/test"
+        "host": "localhost",
+        "database": "launchpad",
+        "port": 27017
     },
     "secretKey": "secretKey",
     "log": {

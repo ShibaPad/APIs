@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/index.ts"],"sourcesContent":["process.env['NODE_CONFIG_DIR'] = __dirname + '/configs';\n"],"names":["process","env","__dirname"],"mappings":";AAAAA,OAAO,CAACC,GAAG,CAAC,CAAiB,oBAAIC,SAAS,GAAG,CAAU"}

@@ -1,0 +1,5 @@
+{
+  "dbConfig": {
+      "connection_uri": "CONNECTION_URI"
+  }
+}

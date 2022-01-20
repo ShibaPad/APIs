@@ -1,9 +1,7 @@
 {
     "env": "test",
     "dbConfig": {
-        "host": "localhost",
-        "database": "test",
-        "port": 27017
+        "connection_uri": "mongodb://localhost:27017/test"
     },
     "secretKey": "secretKey",
     "log": {
